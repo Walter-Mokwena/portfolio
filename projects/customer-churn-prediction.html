@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">Waltter Mokwena</div>
+    <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<section class="section">
+<h1>Customer Churn Prediction</h1>
+
+<h2>Business Problem</h2>
+<p>
+Customer attrition reduces revenue and increases acquisition costs.
+The objective was to predict high-risk customers to enable proactive retention strategies.
+</p>
+
+<h2>Methodology</h2>
+<ul>
+<li>Data cleaning using Pandas</li>
+<li>Feature engineering</li>
+<li>Random Forest & Logistic Regression models</li>
+<li>Evaluation using accuracy, recall, precision</li>
+</ul>
+
+<h2>Results</h2>
+<p>
+Random Forest achieved 84% accuracy with improved recall for churned customers.
+</p>
+
+<h2>Code Snippet</h2>
+
+<pre><code>
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+accuracy = model.score(X_test, y_test)
+print(accuracy)
+</code></pre>
+
+</section>
+
+<footer>© 2026 Waltter Mokwena</footer>
+
+</body>
+</html>

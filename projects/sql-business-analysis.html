@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Business Analysis</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">Waltter Mokwena</div>
+    <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<section class="section">
+<h1>SQL Business Analysis</h1>
+
+<h2>Business Problem</h2>
+<p>
+Management needed insights on revenue trends and customer purchasing behavior.
+</p>
+
+<h2>Approach</h2>
+<p>
+Used advanced SQL queries including joins, aggregations, and window functions.
+</p>
+
+<h2>Sample Query</h2>
+
+<pre><code>
+SELECT customer_id,
+       SUM(amount) AS total_spent
+FROM transactions
+GROUP BY customer_id
+ORDER BY total_spent DESC;
+</code></pre>
+
+<h2>Impact</h2>
+<p>
+Identified top 20% revenue-generating customers.
+</p>
+
+</section>
+
+<footer>© 2026 Waltter Mokwena</footer>
+</body>
+</html>

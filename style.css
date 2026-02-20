@@ -1,0 +1,411 @@
+/* --- 1. Variables & Global Reset --- */
+:root {
+    --primary-dark: #111827;    
+    --accent-green: #3dd78d;    
+    --bg-light: #f9fafb;        
+    --white: #ffffff;
+    --border-gray: #e5e7eb;     
+    --text-muted: #6b7280;      
+    /* The new Montserrat Font Family */
+    --font-main: 'Montserrat', sans-serif; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--primary-dark);
+    line-height: 1.7; /* Slightly more line height for Montserrat */
+    letter-spacing: -0.01em; /* Tightens it up for a high-end feel */
+}
+
+/* --- Updated Dark Navigation --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    /* Matching the Vanta background color (#111827) */
+    background-color: rgba(17, 24, 39, 0.95); 
+    /* This blur effect makes it look premium as you scroll */
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Headers look amazing in Montserrat Extra Bold */
+h1, h2, h3 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    /* Changed to white for visibility */
+    color: #ffffff; 
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+nav a {
+    text-decoration: none;
+    /* Light gray so it's visible but not distracting */
+    color: #94a3b8; 
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+nav a {
+    font-family: var(--font-main);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase; /* Montserrat looks great in caps for nav */
+    font-size: 0.75rem;
+}
+
+nav a:hover {
+    /* Pops to your brand green on hover */
+    color: var(--accent-green); 
+}
+
+/* Optional: Active link styling */
+nav a.active {
+    color: #ffffff;
+}
+/* --- 3. The Hero Section (Optimized for Vanta.js) --- */
+.hero {
+    position: relative;
+    min-height: 85vh; /* Tall enough to showcase the Dots effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    /* Background color set to match Vanta initialization */
+    background-color: var(--primary-dark); 
+    overflow: hidden;
+}
+
+/* Container for text to ensure it stays above the animation */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    /* Changing color to a crisp, readable white */
+    color: #ffffff; 
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    /* Adding a very subtle shadow helps if the Vanta dots get clustered behind text */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Slightly lighter font weight for a modern look */
+    font-weight: 400;
+}
+
+/* Also ensuring the H1 is pure white for consistency */
+.hero h1 {
+    color: #ffffff;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 4. Buttons --- */
+.btn {
+    background-color: var(--accent-green);
+    color: var(--primary-dark);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(61, 215, 141, 0.2);
+}
+
+/* --- 5. Professional Content Sections --- */
+.section {
+    padding: 6rem 10%;
+    background-color: var(--bg-light);
+}
+
+/* --- About Me: Side-by-Side Layout --- */
+#about {
+    background-color: var(--white);
+    padding: 8rem 10%; /* Extra padding for a spacious feel */
+}
+
+.about-container {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between;
+    gap: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1.5; /* Takes up 60% of the space */
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    /* This justifies the text for that clean, formal look */
+    text-align: justify; 
+    /* This prevents awkward spacing by breaking long words if needed */
+    hyphens: auto; 
+}
+
+.about-visual {
+    flex: 1; /* Takes up 40% of the space */
+    display: flex;
+    justify-content: center;
+}
+
+/* The Profile Picture Styling */
+.profile-frame {
+    position: relative;
+    width: 100%;
+    max-width: 350px; /* Limits how big the picture gets */
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Matches the "card" style of your projects */
+    filter: grayscale(20%); /* Optional: subtle professional filter */
+    transition: transform 0.4s ease;
+    box-shadow: 20px 20px 0px var(--accent-green); /* The "Khula" offset shadow */
+}
+
+.profile-frame:hover .profile-img {
+    transform: scale(1.02);
+    filter: grayscale(0%);
+}
+
+/* Responsive: Stack them on top of each other on mobile */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .profile-frame {
+        max-width: 280px; /* Slightly smaller on mobile */
+    }
+}
+
+/* Alternate background color for visual separation */
+#projects {
+    background-color: var(--white);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background: var(--accent-green);
+}
+
+/* --- 6. The Grid & "Khula" Style Blocks --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-gray);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover .card {
+    border-color: var(--accent-green);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-dark);
+}
+
+.card-link:hover h3 {
+    color: var(--accent-green);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- 7. Education & Contact Adjustments --- */
+#education .card {
+    margin-bottom: 1rem;
+}
+
+#contact {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border-radius: 20px;
+    margin: 0 10% 4rem;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#contact h2 { color: var(--white); }
+#contact p { color: #94a3b8; }
+
+/* --- Contact Section: Big Social Grid --- */
+#contact {
+    background-color: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 8rem 10%;
+}
+
+.contact-header {
+    margin-bottom: 4rem;
+}
+
+.contact-header h2 {
+    color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.03); /* Very subtle white overlay */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icon Styling */
+.contact-card i {
+    font-size: 3.5rem; /* Big Icons */
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+}
+
+.contact-card span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-card p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Hover Effect: Glow and Pop */
+.contact-card:hover {
+    background: rgba(61, 215, 141, 0.05);
+    border-color: var(--accent-green);
+    transform: translateY(-10px);
+}
+
+.contact-card:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 8. Footer --- */
+footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--white);
+    border-top: 1px solid var(--border-gray);
+}
+
+/* --- 9. Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    .section { padding: 4rem 5%; }
+    #contact { margin: 0 5% 4rem; }
+}
