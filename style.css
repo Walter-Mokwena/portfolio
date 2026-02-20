@@ -156,6 +156,33 @@ nav a.active {
     box-shadow: 0 10px 20px rgba(61, 215, 141, 0.2);
 }
 
+/* --- Hero Button Layout --- */
+.hero-btns {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Base button override for the link */
+.hero-btns .btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Outline style for the CV button */
+.btn-outline {
+    background-color: transparent !important;
+    border: 2px solid var(--accent-green) !important;
+    color: var(--accent-green) !important;
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-green) !important;
+    color: var(--primary-dark) !important;
+    transform: translateY(-3px);
+}
+
 /* --- 5. Professional Content Sections --- */
 .section {
     padding: 6rem 10%;
